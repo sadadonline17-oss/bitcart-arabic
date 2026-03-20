@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة الدفع - بيتكارت العربية</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.5);
+            max-width: 500px;
+            width: 100%;
+            overflow: hidden;
+            animation: slideUp 0.5s ease;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .header {
+            background: linear-gradient(135deg, #f7931a 0%, #ff8c00 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .logo { font-size: 50px; margin-bottom: 10px; }
+        .header h1 { font-size: 24px; margin-bottom: 5px; }
+        .header p { opacity: 0.9; font-size: 13px; }
+        .gulf-flags { display: flex; justify-content: center; gap: 8px; margin-top: 15px; }
+        .gulf-flags span { font-size: 22px; }
+        
+        .content { padding: 30px; }
+        
+        .locale-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .locale-btn {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .locale-btn:hover { border-color: #f7931a; }
+        .locale-btn.active { border-color: #f7931a; background: #fff3e0; font-weight: bold; }
+        
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; color: #333; font-weight: 600; font-size: 14px; }
+        input, select {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        input:focus { outline: none; border-color: #f7931a; }
+        
+        .currency-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .currency-card {
+            padding: 15px 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .currency-card:hover { border-color: #f7931a; transform: translateY(-2px); }
+        .currency-card.active { border-color: #f7931a; background: #fff3e0; }
+        .currency-card .flag { font-size: 28px; }
+        .currency-card .code { font-weight: bold; font-size: 14px; }
+        .currency-card .name { font-size: 10px; color: #666; }
+        
+        .invoice-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            color: white;
+        }
+        .invoice-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        .invoice-row:last-child { border-bottom: none; padding-top: 12px; font-size: 18px; font-weight: bold; }
+        
+        .btn-pay {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #f7931a 0%, #ff8c00 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-pay:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(247,147,26,0.5); }
+        .btn-pay:disabled { background: #ccc; cursor: not-allowed; }
+        
+        .payment-section { display: none; }
+        .payment-section.active { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        .qr-container {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        .qr-container h3 { margin-bottom: 15px; }
+        #qrCode {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .wallet-box {
+            background: #fff3e0;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        .wallet-box label { font-size: 12px; color: #666; }
+        .wallet-address {
+            font-family: monospace;
+            font-size: 12px;
+            word-break: break-all;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+        
+        .countdown-box {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+            border-radius: 15px;
+            margin: 20px 0;
+            color: white;
+        }
+        .countdown-time { font-size: 36px; font-weight: bold; font-family: monospace; }
+        
+        .status-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px;
+            border-radius: 15px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        .status-pending { background: #fff3e0; color: #f7931a; }
+        .status-confirmed { background: #e8f5e9; color: #4caf50; }
+        .status-paid { background: #4caf50; color: white; }
+        
+        .success-screen { text-align: center; padding: 30px; }
+        .success-icon { font-size: 80px; margin-bottom: 20px; }
+        .success-screen h2 { color: #4caf50; margin-bottom: 10px; }
+        
+        .copied-toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1000;
+        }
+        .copied-toast.show { opacity: 1; }
+        
+        .api-status {
+            font-size: 12px;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .api-connected { background: #e8f5e9; color: #4caf50; }
+        .api-disconnected { background: #ffebee; color: #f44336; }
+        
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">💰</div>
+            <h1 id="headerTitle">بوابة الدفع العربية</h1>
+            <p id="headerSubtitle">دفع آمن بالكريبتو - Bitcoin Testnet</p>
+            <div class="gulf-flags">
+                <span>🇸🇦</span><span>🇦🇪</span><span>🇰🇼</span>
+                <span>🇧🇭</span><span>🇶🇦</span><span>🇴🇲</span>
+            </div>
+            <div class="api-status api-disconnected" id="apiStatus">🔴 جاري الاتصال...</div>
+        </div>
+        
+        <div class="content">
+            <!-- Checkout Form -->
+            <div id="checkoutSection">
+                <div class="locale-bar">
+                    <button class="locale-btn active" onclick="setLocale('ar')">🇸🇦 العربية</button>
+                    <button class="locale-btn" onclick="setLocale('en')">🇺🇸 English</button>
+                </div>
+                
+                <form id="paymentForm" onsubmit="createInvoice(event)">
+                    <div class="form-group">
+                        <label>البريد الإلكتروني:</label>
+                        <input type="email" id="email" placeholder="example@domain.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>المبلغ:</label>
+                        <input type="number" id="amount" placeholder="100" min="0.01" step="0.01" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>العملة:</label>
+                        <div class="currency-grid">
+                            <div class="currency-card active" data-currency="SAR" onclick="selectCurrency(this)">
+                                <div class="flag">🇸🇦</div>
+                                <div class="code">SAR</div>
+                                <div class="name">ريال</div>
+                            </div>
+                            <div class="currency-card" data-currency="AED" onclick="selectCurrency(this)">
+                                <div class="flag">🇦🇪</div>
+                                <div class="code">AED</div>
+                                <div class="name">درهم</div>
+                            </div>
+                            <div class="currency-card" data-currency="KWD" onclick="selectCurrency(this)">
+                                <div class="flag">🇰🇼</div>
+                                <div class="code">KWD</div>
+                                <div class="name">دينار</div>
+                            </div>
+                            <div class="currency-card" data-currency="USD" onclick="selectCurrency(this)">
+                                <div class="flag">🇺🇸</div>
+                                <div class="code">USD</div>
+                                <div class="name">دولار</div>
+                            </div>
+                            <div class="currency-card" data-currency="EUR" onclick="selectCurrency(this)">
+                                <div class="flag">🇪🇺</div>
+                                <div class="code">EUR</div>
+                                <div class="name">يورو</div>
+                            </div>
+                            <div class="currency-card" data-currency="BTC" onclick="selectCurrency(this)">
+                                <div class="flag">₿</div>
+                                <div class="code">BTC</div>
+                                <div class="name">بيتكوين</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="invoice-box">
+                        <div class="invoice-row">
+                            <span>المبلغ:</span>
+                            <span id="previewAmount">-</span>
+                        </div>
+                        <div class="invoice-row">
+                            <span>بالكريبتو:</span>
+                            <span id="previewBtc">-</span>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-pay" id="payBtn">
+                        💰 إنشاء فاتورة والدفع
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Payment Section -->
+            <div id="paymentSection" class="payment-section">
+                <div class="success-screen">
+                    <div class="success-icon">📋</div>
+                    <h2>تم إنشاء الفاتورة!</h2>
+                    <p>رقم: <strong id="invoiceId">-</strong></p>
+                </div>
+                
+                <div class="status-badge status-pending" id="statusBadge">
+                    <span>⏳</span>
+                    <span>في انتظار الدفع...</span>
+                </div>
+                
+                <div class="qr-container">
+                    <h3>امسح QR للدفع (BTC Testnet)</h3>
+                    <div id="qrCode"></div>
+                    <p style="margin-top: 10px; font-size: 12px; color: #666;">أرسل المبلغ إلى العنوان</p>
+                </div>
+                
+                <div class="wallet-box">
+                    <label>عنوان المحفظة:</label>
+                    <div class="wallet-address" id="walletAddress" onclick="copyAddress()">-</div>
+                </div>
+                
+                <div class="countdown-box">
+                    <h4>الوقت المتبقي:</h4>
+                    <div class="countdown-time" id="countdown">30:00</div>
+                </div>
+                
+                <button class="btn-pay" onclick="checkPayment()">
+                    🔄 تحقق من الدفع
+                </button>
+                
+                <button class="btn-pay" style="margin-top: 10px; background: #666;" onclick="resetForm()">
+                    🔙 فاتورة جديدة
+                </button>
+            </div>
+            
+            <!-- Success Section -->
+            <div id="successSection" class="payment-section">
+                <div class="success-screen">
+                    <div class="success-icon">✅</div>
+                    <h2 style="color: #4caf50;">تم تأكيد الدفع!</h2>
+                    <p id="txHash">رقم المعاملة: <strong>-</strong></p>
+                </div>
+                
+                <button class="btn-pay" style="background: #4caf50;" onclick="resetForm()">
+                    🔄 فاتورة جديدة
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="copied-toast" id="copiedToast">✓ تم نسخ العنوان!</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        // API Configuration - UPDATE THIS AFTER DEPLOYMENT
+        let API_BASE = "http://localhost:8000"; // Change to your Render URL after deployment
+        
+        // Check for deployed API
+        const DEPLOYED_API = window.location.hostname.includes('github.io') 
+            ? "https://bitcart-api.onrender.com" // Update this
+            : "http://localhost:8000";
+        API_BASE = DEPLOYED_API;
+
+        let currentInvoice = null;
+        let countdownInterval = null;
+        let paymentCheckInterval = null;
+        let rates = {};
+        
+        // Language
+        let currentLang = 'ar';
+        
+        const i18n = {
+            ar: {
+                headerTitle: 'بوابة الدفع العربية',
+                headerSubtitle: 'دفع آمن بالكريبتو - Bitcoin Testnet',
+                statusConnected: '🟢 متصل',
+                statusDisconnected: '🔴 جاري الاتصال...',
+                emailLabel: 'البريد الإلكتروني:',
+                amountLabel: 'المبلغ:',
+                currencyLabel: 'العملة:',
+                previewAmount: 'المبلغ:',
+                previewBtc: 'بالكريبتو:',
+                payBtnText: 'إنشاء فاتورة والدفع',
+                invoiceCreated: 'تم إنشاء الفاتورة!',
+                statusPending: 'في انتظار الدفع...',
+                statusConfirmed: 'تم تأكيد الدفع!',
+                qrTitle: 'امسح QR للدفع (BTC Testnet)',
+                timeLeft: 'الوقت المتبقي:',
+                checkBtn: 'تحقق من الدفع',
+                newInvoice: 'فاتورة جديدة',
+                confirmTitle: 'تم تأكيد الدفع!',
+            },
+            en: {
+                headerTitle: 'Arabic Payment Gateway',
+                headerSubtitle: 'Secure Crypto Payment - Bitcoin Testnet',
+                statusConnected: '🟢 Connected',
+                statusDisconnected: '🔴 Connecting...',
+                emailLabel: 'Email Address:',
+                amountLabel: 'Amount:',
+                currencyLabel: 'Currency:',
+                previewAmount: 'Amount:',
+                previewBtc: 'In Crypto:',
+                payBtnText: 'Create Invoice & Pay',
+                invoiceCreated: 'Invoice Created!',
+                statusPending: 'Waiting for payment...',
+                statusConfirmed: 'Payment Confirmed!',
+                qrTitle: 'Scan QR to Pay (BTC Testnet)',
+                timeLeft: 'Time Remaining:',
+                checkBtn: 'Check Payment',
+                newInvoice: 'New Invoice',
+                confirmTitle: 'Payment Confirmed!',
+            }
+        };
+        
+        // Initialize
+        async function init() {
+            await checkApiConnection();
+            await fetchRates();
+            updatePreview();
+        }
+        
+        async function checkApiConnection() {
+            const statusEl = document.getElementById('apiStatus');
+            try {
+                const response = await fetch(`${API_BASE}/health`, { 
+                    method: 'GET',
+                    mode: 'cors'
+                });
+                if (response.ok) {
+                    statusEl.textContent = i18n[currentLang].statusConnected;
+                    statusEl.className = 'api-status api-connected';
+                    return true;
+                }
+            } catch (e) {
+                console.log('API not connected, using demo mode');
+            }
+            statusEl.textContent = i18n[currentLang].statusDisconnected;
+            statusEl.className = 'api-status api-disconnected';
+            return false;
+        }
+        
+        async function fetchRates() {
+            try {
+                const response = await fetch(`${API_BASE}/rates`, {
+                    mode: 'cors'
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    rates = data.currencies;
+                }
+            } catch (e) {
+                // Use fallback rates
+                rates = {
+                    'SAR': { btc_rate: 0.0000067 },
+                    'AED': { btc_rate: 0.0000065 },
+                    'KWD': { btc_rate: 0.00000082 },
+                    'USD': { btc_rate: 0.000026 },
+                    'EUR': { btc_rate: 0.000024 },
+                    'BTC': { btc_rate: 1 }
+                };
+            }
+        }
+        
+        function setLocale(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            document.documentElement.dir = 'rtl';
+            
+            document.querySelectorAll('.locale-btn').forEach(btn => {
+                btn.classList.toggle('active', 
+                    (lang === 'ar' && btn.textContent.includes('العربية')) ||
+                    (lang === 'en' && btn.textContent.includes('English'))
+                );
+            });
+            
+            const t = i18n[lang];
+            document.getElementById('headerTitle').textContent = t.headerTitle;
+            document.getElementById('headerSubtitle').textContent = t.headerSubtitle;
+        }
+        
+        function selectCurrency(card) {
+            document.querySelectorAll('.currency-card').forEach(c => c.classList.remove('active'));
+            card.classList.add('active');
+            updatePreview();
+        }
+        
+        function getSelectedCurrency() {
+            return document.querySelector('.currency-card.active').dataset.currency;
+        }
+        
+        function updatePreview() {
+            const amount = parseFloat(document.getElementById('amount').value) || 0;
+            const currency = getSelectedCurrency();
+            
+            document.getElementById('previewAmount').textContent = `${amount} ${currency}`;
+            
+            const rate = rates[currency]?.btc_rate || 0.000025;
+            const btcAmount = amount * rate;
+            document.getElementById('previewBtc').textContent = `${btcAmount.toFixed(8)} BTC`;
+        }
+        
+        document.getElementById('amount').addEventListener('input', updatePreview);
+        
+        async function createInvoice(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const amount = parseFloat(document.getElementById('amount').value);
+            const currency = getSelectedCurrency();
+            
+            const btn = document.getElementById('payBtn');
+            btn.disabled = true;
+            btn.textContent = '⏳ جاري الإنشاء...';
+            
+            try {
+                // Try to create invoice via API
+                const response = await fetch(`${API_BASE}/invoices`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, amount, currency }),
+                    mode: 'cors'
+                });
+                
+                let invoice;
+                if (response.ok) {
+                    invoice = await response.json();
+                } else {
+                    // Create local invoice
+                    invoice = createLocalInvoice(email, amount, currency);
+                }
+                
+                showPaymentSection(invoice);
+                
+            } catch (e) {
+                // Create local invoice
+                const invoice = createLocalInvoice(email, amount, currency);
+                showPaymentSection(invoice);
+            }
+            
+            btn.disabled = false;
+            btn.textContent = '💰 إنشاء فاتورة والدفع';
+        }
+        
+        function createLocalInvoice(email, amount, currency) {
+            const invoiceId = 'INV-' + Date.now().toString(36).toUpperCase();
+            const rate = rates[currency]?.btc_rate || 0.000025;
+            const btcAmount = amount * rate;
+            const expiresAt = new Date(Date.now() + 30 * 60 * 1000);
+            
+            return {
+                id: invoiceId,
+                amount: amount,
+                currency: currency,
+                btc_amount: btcAmount,
+                address: 'tb1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh',
+                expires_at: expiresAt.toISOString()
+            };
+        }
+        
+        function showPaymentSection(invoice) {
+            currentInvoice = invoice;
+            
+            document.getElementById('invoiceId').textContent = invoice.id;
+            document.getElementById('walletAddress').textContent = invoice.address;
+            
+            // Generate QR
+            const qrContainer = document.getElementById('qrCode');
+            qrContainer.innerHTML = '';
+            new QRCode(qrContainer, {
+                text: `bitcoin:${invoice.address}?amount=${invoice.btc_amount}`,
+                width: 180,
+                height: 180
+            });
+            
+            // Calculate remaining time
+            const expires = new Date(invoice.expires_at);
+            const remaining = Math.floor((expires - Date.now()) / 1000);
+            
+            document.getElementById('checkoutSection').classList.add('hidden');
+            document.getElementById('paymentSection').classList.add('active');
+            
+            startCountdown(remaining);
+            startPaymentCheck();
+        }
+        
+        function startCountdown(seconds) {
+            if (countdownInterval) clearInterval(countdownInterval);
+            
+            countdownInterval = setInterval(() => {
+                seconds--;
+                if (seconds <= 0) {
+                    clearInterval(countdownInterval);
+                    alert('انتهت صلاحية الفاتورة!');
+                    resetForm();
+                    return;
+                }
+                const mins = Math.floor(seconds / 60);
+                const secs = seconds % 60;
+                document.getElementById('countdown').textContent = 
+                    `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
+        
+        function startPaymentCheck() {
+            if (paymentCheckInterval) clearInterval(paymentCheckInterval);
+            
+            // Check payment every 10 seconds
+            paymentCheckInterval = setInterval(async () => {
+                try {
+                    const response = await fetch(`${API_BASE}/invoices/${currentInvoice.id}/check`, {
+                        mode: 'cors'
+                    });
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        if (data.status === 'confirmed' || data.status === 'paid') {
+                            confirmPayment(data.invoice?.tx_hash || 'CONFIRMED');
+                        }
+                    }
+                } catch (e) {
+                    // API not available
+                }
+            }, 10000);
+        }
+        
+        async function checkPayment() {
+            const btn = event.target;
+            btn.disabled = true;
+            btn.textContent = '⏳ جاري التحقق...';
+            
+            try {
+                const response = await fetch(`${API_BASE}/invoices/${currentInvoice.id}/check`, {
+                    mode: 'cors'
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.status === 'confirmed' || data.status === 'paid') {
+                        confirmPayment(data.invoice?.tx_hash || 'CONFIRMED');
+                    } else {
+                        alert('لم يتم استلام الدفع بعد. تأكد من إرسال المبلغ.');
+                    }
+                }
+            } catch (e) {
+                alert('فشل الاتصال بالخادم');
+            }
+            
+            btn.disabled = false;
+            btn.textContent = '🔄 تحقق من الدفع';
+        }
+        
+        function confirmPayment(txHash) {
+            if (countdownInterval) clearInterval(countdownInterval);
+            if (paymentCheckInterval) clearInterval(paymentCheckInterval);
+            
+            const statusBadge = document.getElementById('statusBadge');
+            statusBadge.className = 'status-badge status-paid';
+            statusBadge.innerHTML = '<span>✓</span><span>تم تأكيد الدفع!</span>';
+            
+            document.getElementById('txHash').innerHTML = 'رقم المعاملة: <strong>' + txHash + '</strong>';
+            
+            setTimeout(() => {
+                document.getElementById('paymentSection').classList.remove('active');
+                document.getElementById('successSection').classList.add('active');
+            }, 2000);
+        }
+        
+        function copyAddress() {
+            const address = document.getElementById('walletAddress').textContent;
+            navigator.clipboard.writeText(address);
+            const toast = document.getElementById('copiedToast');
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2000);
+        }
+        
+        function resetForm() {
+            if (countdownInterval) clearInterval(countdownInterval);
+            if (paymentCheckInterval) clearInterval(paymentCheckInterval);
+            
+            currentInvoice = null;
+            document.getElementById('paymentForm').reset();
+            document.getElementById('checkoutSection').classList.remove('hidden');
+            document.getElementById('paymentSection').classList.remove('active');
+            document.getElementById('successSection').classList.remove('active');
+            
+            const statusBadge = document.getElementById('statusBadge');
+            statusBadge.className = 'status-badge status-pending';
+            statusBadge.innerHTML = '<span>⏳</span><span>في انتظار الدفع...</span>';
+            
+            updatePreview();
+        }
+        
+        // Start
+        init();
+    </script>
+</body>
+</html>

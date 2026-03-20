@@ -1,0 +1,50 @@
+# renders.yaml - Render Blueprint
+# https://render.com/docs/blueprint-spec
+
+services:
+  # API Service
+  - type: web
+    name: bitcart-api
+    env: docker
+    region: frankfurt
+    plan: free
+    dockerfilePath: ./Dockerfile.api
+    healthCheckPath: /health
+    envVars:
+      - key: BITCART_ENV
+        value: production
+      - key: BITCART_CRYPTOS
+        value: btc,eth,ltc
+      - key: DATABASE_URL
+        fromDatabase:
+          name: bitcart-postgres
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: bitcart-redis
+          envVarKey: REDIS_URL
+
+  # Frontend (Static)
+  - type: web
+    name: bitcart-frontend
+    region: frankfurt
+    plan: free
+    buildCommand: ""
+    staticPublishPath: .
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=0, must-revalidate
+
+  # PostgreSQL Database
+  - type: psql
+    name: bitcart-postgres
+    plan: free
+    region: frankfurt
+
+  # Redis
+  - type: redis
+    name: bitcart-redis
+    plan: free
+    region: frankfurt
