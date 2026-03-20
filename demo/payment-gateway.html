@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة الدفع - نظام بيتكارت</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 500px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #f7931a 0%, #ff9500 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .header p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        .logo {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        .content {
+            padding: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+        }
+        input, select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #f7931a;
+        }
+        .currency-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .currency-btn {
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .currency-btn:hover {
+            border-color: #f7931a;
+        }
+        .currency-btn.active {
+            border-color: #f7931a;
+            background: #fff3e0;
+        }
+        .currency-btn .symbol {
+            font-size: 24px;
+        }
+        .currency-btn .name {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        .currency-btn .name-ar {
+            font-size: 11px;
+            color: #888;
+        }
+        .btn-pay {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #f7931a 0%, #ff9500 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .btn-pay:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(247, 147, 26, 0.4);
+        }
+        .btn-pay:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .invoice-preview {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .invoice-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .invoice-row:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 18px;
+            color: #f7931a;
+        }
+        .success {
+            text-align: center;
+            padding: 40px;
+        }
+        .success-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        .success h2 {
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+        .qr-section {
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .qr-placeholder {
+            width: 200px;
+            height: 200px;
+            background: #f0f0f0;
+            margin: 0 auto 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            color: #666;
+        }
+        .wallet-address {
+            background: #fff3e0;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: monospace;
+            word-break: break-all;
+            font-size: 12px;
+            margin-top: 15px;
+        }
+        .countdown {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3e0;
+            border-radius: 10px;
+        }
+        .countdown .time {
+            font-size: 32px;
+            font-weight: bold;
+            color: #f7931a;
+        }
+        .countdown .label {
+            color: #666;
+            margin-top: 5px;
+        }
+        .demo-badge {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #ff5722;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255, 87, 34, 0.4);
+        }
+        .gulf-flags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .gulf-flags span {
+            font-size: 24px;
+        }
+        .locale-selector {
+            margin-bottom: 20px;
+        }
+        .locale-selector select {
+            background: #f8f9fa;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-badge">🔧 وضع تجريبي</div>
+    
+    <div class="container">
+        <div class="header">
+            <div class="logo">💰</div>
+            <h1>بوابة الدفع العربية</h1>
+            <p>دعم كامل للعملات العربية والخليجية</p>
+            <div class="gulf-flags">
+                <span>🇸🇦</span>
+                <span>🇦🇪</span>
+                <span>🇰🇼</span>
+                <span>🇧🇭</span>
+                <span>🇶🇦</span>
+                <span>🇴🇲</span>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="locale-selector">
+                <label>اختر اللغة والمنطقة:</label>
+                <select id="locale" onchange="updateLocale()">
+                    <option value="ar-SA">🇸🇦 العربية (السعودية)</option>
+                    <option value="ar-AE">🇦🇪 العربية (الإمارات)</option>
+                    <option value="ar-KW">🇰🇼 العربية (الكويت)</option>
+                    <option value="ar-BH">🇧🇭 العربية (البحرين)</option>
+                    <option value="ar-QA">🇶🇦 العربية (قطر)</option>
+                    <option value="ar-OM">🇴🇲 العربية (عُمان)</option>
+                    <option value="ar-EG">🇪🇬 العربية (مصر)</option>
+                    <option value="en-US">🇺🇸 English (US)</option>
+                </select>
+            </div>
+
+            <form id="paymentForm" onsubmit="createInvoice(event)">
+                <div class="form-group">
+                    <label>البريد الإلكتروني:</label>
+                    <input type="email" id="email" placeholder="example@domain.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>المبلغ:</label>
+                    <input type="number" id="amount" placeholder="100" min="1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>العملة:</label>
+                    <div class="currency-selector" id="currencySelector">
+                        <button type="button" class="currency-btn active" data-currency="SAR" data-symbol="ر.س" onclick="selectCurrency(this)">
+                            <div class="symbol">🇸🇦</div>
+                            <div class="name">SAR</div>
+                            <div class="name-ar">ريال سعودي</div>
+                        </button>
+                        <button type="button" class="currency-btn" data-currency="AED" data-symbol="د.إ" onclick="selectCurrency(this)">
+                            <div class="symbol">🇦🇪</div>
+                            <div class="name">AED</div>
+                            <div class="name-ar">درهم إماراتي</div>
+                        </button>
+                        <button type="button" class="currency-btn" data-currency="KWD" data-symbol="د.ك" onclick="selectCurrency(this)">
+                            <div class="symbol">🇰🇼</div>
+                            <div class="name">KWD</div>
+                            <div class="name-ar">دينار كويتي</div>
+                        </button>
+                        <button type="button" class="currency-btn" data-currency="USD" data-symbol="$" onclick="selectCurrency(this)">
+                            <div class="symbol">🇺🇸</div>
+                            <div class="name">USD</div>
+                            <div class="name-ar">دولار أمريكي</div>
+                        </button>
+                        <button type="button" class="currency-btn" data-currency="EUR" data-symbol="€" onclick="selectCurrency(this)">
+                            <div class="symbol">🇪🇺</div>
+                            <div class="name">EUR</div>
+                            <div class="name-ar">يورو</div>
+                        </button>
+                        <button type="button" class="currency-btn" data-currency="BTC" data-symbol="₿" onclick="selectCurrency(this)">
+                            <div class="symbol">₿</div>
+                            <div class="name">BTC</div>
+                            <div class="name-ar">بيتكوين</div>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="invoice-preview">
+                    <div class="invoice-row">
+                        <span>المبلغ:</span>
+                        <span id="previewAmount">-</span>
+                    </div>
+                    <div class="invoice-row">
+                        <span>العملة:</span>
+                        <span id="previewCurrency">-</span>
+                    </div>
+                    <div class="invoice-row">
+                        <span id="previewLabel">المجموع:</span>
+                        <span id="previewTotal">-</span>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-pay" id="payBtn">
+                    💰 إنشاء فاتورة والدفع
+                </button>
+            </form>
+            
+            <div id="invoiceSection" class="hidden">
+                <div class="success">
+                    <div class="success-icon">📋</div>
+                    <h2>تم إنشاء الفاتورة!</h2>
+                    <p>رقم الفاتورة: <strong id="invoiceId">-</strong></p>
+                </div>
+                
+                <div class="qr-section">
+                    <p>امسح رمز QR للدفع:</p>
+                    <div class="qr-placeholder">
+                        [صورة QR]<br>
+                        سيتم عرضها عند الاتصال بالخادم
+                    </div>
+                    <div class="wallet-address">
+                        <strong>عنوان المحفظة:</strong><br>
+                        <span id="walletAddress">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</span>
+                    </div>
+                </div>
+                
+                <div class="countdown">
+                    <div class="time" id="countdown">30:00</div>
+                    <div class="label">الوقت المتبقي للدفع</div>
+                </div>
+                
+                <button class="btn-pay" style="margin-top: 20px;" onclick="resetForm()">
+                    🔄 إنشاء فاتورة جديدة
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedCurrency = 'SAR';
+        let countdownInterval;
+        
+        const currencyNames = {
+            'SAR': { name: 'Saudi Riyal', name_ar: 'ريال سعودي', symbol: 'ر.س' },
+            'AED': { name: 'UAE Dirham', name_ar: 'درهم إماراتي', symbol: 'د.إ' },
+            'KWD': { name: 'Kuwaiti Dinar', name_ar: 'دينار كويتي', symbol: 'د.ك' },
+            'BHD': { name: 'Bahraini Dinar', name_ar: 'دينار بحريني', symbol: 'د.ب' },
+            'QAR': { name: 'Qatari Rial', name_ar: 'ريال قطري', symbol: 'ر.ق' },
+            'OMR': { name: 'Rial Omani', name_ar: 'ريال عماني', symbol: 'ر.ع.' },
+            'EGP': { name: 'Egyptian Pound', name_ar: 'جنيه مصري', symbol: 'ج.م' },
+            'USD': { name: 'US Dollar', name_ar: 'دولار أمريكي', symbol: '$' },
+            'EUR': { name: 'Euro', name_ar: 'يورو', symbol: '€' },
+            'GBP': { name: 'Pound Sterling', name_ar: 'جنيه إسترليني', symbol: '£' },
+            'BTC': { name: 'Bitcoin', name_ar: 'بيتكوين', symbol: '₿' }
+        };
+        
+        function updateLocale() {
+            const locale = document.getElementById('locale').value;
+            const isArabic = locale.startsWith('ar');
+            document.documentElement.lang = locale;
+            document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
+            
+            if (isArabic) {
+                document.body.style.fontFamily = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+            } else {
+                document.body.style.fontFamily = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+            }
+        }
+        
+        function selectCurrency(btn) {
+            document.querySelectorAll('.currency-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedCurrency = btn.dataset.currency;
+            updatePreview();
+        }
+        
+        function updatePreview() {
+            const amount = document.getElementById('amount').value || '-';
+            const currency = currencyNames[selectedCurrency];
+            document.getElementById('previewAmount').textContent = amount;
+            document.getElementById('previewCurrency').textContent = 
+                `${currency.name} (${currency.name_ar})`;
+            document.getElementById('previewTotal').textContent = 
+                `${amount} ${currency.symbol || selectedCurrency}`;
+        }
+        
+        document.getElementById('amount').addEventListener('input', updatePreview);
+        
+        function createInvoice(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const amount = document.getElementById('amount').value;
+            const currency = selectedCurrency;
+            
+            document.getElementById('payBtn').disabled = true;
+            document.getElementById('payBtn').textContent = '⏳ جاري الإنشاء...';
+            
+            setTimeout(() => {
+                const invoiceId = 'INV-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+                
+                document.getElementById('invoiceId').textContent = invoiceId;
+                document.getElementById('paymentForm').classList.add('hidden');
+                document.getElementById('invoiceSection').classList.remove('hidden');
+                
+                startCountdown(30 * 60);
+            }, 1500);
+        }
+        
+        function startCountdown(seconds) {
+            let remaining = seconds;
+            
+            if (countdownInterval) clearInterval(countdownInterval);
+            
+            countdownInterval = setInterval(() => {
+                remaining--;
+                const mins = Math.floor(remaining / 60);
+                const secs = remaining % 60;
+                document.getElementById('countdown').textContent = 
+                    `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                
+                if (remaining <= 0) {
+                    clearInterval(countdownInterval);
+                    alert('انتهت صلاحية الفاتورة!');
+                    resetForm();
+                }
+            }, 1000);
+        }
+        
+        function resetForm() {
+            if (countdownInterval) clearInterval(countdownInterval);
+            
+            document.getElementById('paymentForm').classList.remove('hidden');
+            document.getElementById('invoiceSection').classList.add('hidden');
+            document.getElementById('payBtn').disabled = false;
+            document.getElementById('payBtn').textContent = '💰 إنشاء فاتورة والدفع';
+            document.getElementById('paymentForm').reset();
+            updatePreview();
+        }
+        
+        updatePreview();
+    </script>
+</body>
+</html>
