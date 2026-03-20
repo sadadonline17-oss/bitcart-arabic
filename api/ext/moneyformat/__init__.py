@@ -114,5 +114,34 @@ class CurrencyTable:
             value = Decimal(value)
         return self.format_currency(currency, value, fancy=False, divisibility=divisibility)
 
+    def get_currency_name_ar(self, currency: str) -> str | None:
+        data = self.get_currency_data(currency)
+        return data.get("name_ar")
+
+    def get_currency_name(self, currency: str, locale: str | None = None) -> str:
+        data = self.get_currency_data(currency)
+        if locale and locale.startswith("ar"):
+            name_ar = data.get("name_ar")
+            if name_ar:
+                return name_ar
+        return data.get("name", currency)
+
+    def get_currency_symbol_ar(self, currency: str) -> str | None:
+        data = self.get_currency_data(currency)
+        return data.get("symbol_ar")
+
+    def get_all_currencies_with_ar(self) -> dict[str, dict[str, Any]]:
+        result = {}
+        for currency, data in self.data.items():
+            result[currency] = {
+                "name": data.get("name"),
+                "name_ar": data.get("name_ar"),
+                "symbol": data.get("symbol"),
+                "symbol_ar": data.get("symbol_ar"),
+                "divisibility": data.get("divisibility"),
+                "crypto": data.get("crypto"),
+            }
+        return result
+
 
 currency_table = CurrencyTable()

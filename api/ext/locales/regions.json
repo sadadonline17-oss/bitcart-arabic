@@ -1,0 +1,172 @@
+{
+    "ar-SA": {
+        "name": "Arabic (Saudi Arabia)",
+        "native_name": "العربية (المملكة العربية السعودية)",
+        "currency": "SAR",
+        "currency_name": "الريال السعودي",
+        "currency_symbol": "ر.س",
+        "date_format": "dd/mm/yyyy",
+        "time_format": "12h",
+        "rtl": true
+    },
+    "ar-AE": {
+        "name": "Arabic (UAE)",
+        "native_name": "العربية (الإمارات العربية المتحدة)",
+        "currency": "AED",
+        "currency_name": "الدرهم الإماراتي",
+        "currency_symbol": "د.إ",
+        "date_format": "dd/mm/yyyy",
+        "time_format": "12h",
+        "rtl": true
+    },
+    "ar-KW": {
+        "name": "Arabic (Kuwait)",
+        "native_name": "العربية (الكويت)",
+        "currency": "KWD",
+        "currency_name": "الدينار الكويتي",
+        "currency_symbol": "د.ك",
+        "date_format": "dd/mm/yyyy",
+        "time_format": "12h",
+        "rtl": true
+    },
+    "ar-BH": {
+        "name": "Arabic (Bahrain)",
+        "native_name": "العربية (البحرين)",
+        "currency": "BHD",
+        "currency_name": "الدينار البحريني",
+        "currency_symbol": "د.ب",
+        "date_format": "dd/mm/yyyy",
+        "time_format": "12h",
+        "rtl": true
+    },
+    "ar-QA": {
+        "name": "Arabic (Qatar)",
+        "native_name": "العربية (قطر)",
+        "currency": "QAR",
+        "currency_name": "الريال القطري",
+        "currency_symbol": "ر.ق",
+        "date_format": "dd/mm/yyyy",
+        "time_format": "12h",
+        "rtl": true
+    },
+    "ar-OM": {
+        "name": "Arabic (Oman)",
+        "native_name": "العربية (عُمان)",
+        "currency": "OMR",
+        "currency_name": "الريال العماني",
+        "currency_symbol": "ر.ع.",
+        "date_format": "dd/mm/yyyy",
+        "time_format": "12h",
+        "rtl": true
+    },
+    "ar-IQ": {
+        "name": "Arabic (Iraq)",
+        "native_name": "العربية (العراق)",
+        "currency": "IQD",
+        "currency_name": "الدينار العراقي",
+        "currency_symbol": "د.ع",
+        "date_format": "dd/mm/yyyy",
+        "time_format": "12h",
+        "rtl": true
+    },
+    "ar-JO": {
+        "name": "Arabic (Jordan)",
+        "native_name": "العربية (الأردن)",
+        "currency": "JOD",
+        "currency_name": "الدينار الأردني",
+        "currency_symbol": "د.أ",
+        "date_format": "dd/mm/yyyy",
+        "time_format": "12h",
+        "rtl": true
+    },
+    "ar-LB": {
+        "name": "Arabic (Lebanon)",
+        "native_name": "العربية (لبنان)",
+        "currency": "LBP",
+        "currency_name": "الليرة اللبنانية",
+        "currency_symbol": "ل.ل",
+        "date_format": "dd/mm/yyyy",
+        "time_format": "12h",
+        "rtl": true
+    },
+    "ar-EG": {
+        "name": "Arabic (Egypt)",
+        "native_name": "العربية (مصر)",
+        "currency": "EGP",
+        "currency_name": "الجنيه المصري",
+        "currency_symbol": "ج.م",
+        "date_format": "dd/mm/yyyy",
+        "time_format": "12h",
+        "rtl": false
+    },
+    "ar-DZ": {
+        "name": "Arabic (Algeria)",
+        "native_name": "العربية (الجزائر)",
+        "currency": "DZD",
+        "currency_name": "الدينار الجزائري",
+        "currency_symbol": "د.ج",
+        "date_format": "dd/mm/yyyy",
+        "time_format": "24h",
+        "rtl": true
+    },
+    "ar-MA": {
+        "name": "Arabic (Morocco)",
+        "native_name": "العربية (المغرب)",
+        "currency": "MAD",
+        "currency_name": "الدرهم المغربي",
+        "currency_symbol": "د.م.",
+        "date_format": "dd/mm/yyyy",
+        "time_format": "24h",
+        "rtl": true
+    },
+    "ar-TN": {
+        "name": "Arabic (Tunisia)",
+        "native_name": "العربية (تونس)",
+        "currency": "TND",
+        "currency_name": "الدينار التونسي",
+        "currency_symbol": "د.ت",
+        "date_format": "dd/mm/yyyy",
+        "time_format": "24h",
+        "rtl": true
+    },
+    "ar-LY": {
+        "name": "Arabic (Libya)",
+        "native_name": "العربية (ليبيا)",
+        "currency": "LYD",
+        "currency_name": "الدينار الليبي",
+        "currency_symbol": "د.ل",
+        "date_format": "dd/mm/yyyy",
+        "time_format": "24h",
+        "rtl": true
+    },
+    "ar-SD": {
+        "name": "Arabic (Sudan)",
+        "native_name": "العربية (السودان)",
+        "currency": "SDG",
+        "currency_name": "الجنيه السوداني",
+        "currency_symbol": "ج.س.",
+        "date_format": "dd/mm/yyyy",
+        "time_format": "12h",
+        "rtl": true
+    },
+    "ar-SY": {
+        "name": "Arabic (Syria)",
+        "native_name": "العربية (سوريا)",
+        "currency": "SYP",
+        "currency_name": "الليرة السورية",
+        "currency_symbol": "ل.س",
+        "date_format": "dd/mm/yyyy",
+        "time_format": "12h",
+        "rtl": true
+    },
+    "ar-YE": {
+        "name": "Arabic (Yemen)",
+        "native_name": "العربية (اليمن)",
+        "currency": "YER",
+        "currency_name": "الريال اليمني",
+        "currency_symbol": "ر.ي",
+        "date_format": "dd/mm/yyyy",
+        "time_format": "12h",
+        "rtl": true
+    }
+}

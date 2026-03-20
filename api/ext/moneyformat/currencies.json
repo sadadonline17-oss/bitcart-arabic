@@ -1,326 +1,792 @@
 {
-    "AFN": "Afghani",
+    "AFN": {
+        "name": "Afghani",
+        "name_ar": "أفغاني"
+    },
     "EUR": {
         "name": "Euro",
+        "name_ar": "يورو",
         "symbol": "€"
     },
-    "ALL": "Lek",
-    "DZD": "Algerian Dinar",
+    "ALL": {
+        "name": "Lek",
+        "name_ar": "ليك"
+    },
+    "DZD": {
+        "name": "Algerian Dinar",
+        "name_ar": "دينار جزائري",
+        "symbol": "د.ج"
+    },
     "USD": {
         "name": "US Dollar",
+        "name_ar": "دولار أمريكي",
         "symbol": "$"
     },
-    "AOA": "Kwanza",
-    "XCD": "East Caribbean Dollar",
-    "ARS": "Argentine Peso",
-    "AMD": "Armenian Dram",
-    "AWG": "Aruban Florin",
+    "AOA": {
+        "name": "Kwanza",
+        "name_ar": "كوانزا"
+    },
+    "XCD": {
+        "name": "East Caribbean Dollar",
+        "name_ar": "دولار الكاريبي الشرقي"
+    },
+    "ARS": {
+        "name": "Argentine Peso",
+        "name_ar": "بيزو أرجنتيني"
+    },
+    "AMD": {
+        "name": "Armenian Dram",
+        "name_ar": "درام أرميني"
+    },
+    "AWG": {
+        "name": "Aruban Florin",
+        "name_ar": "فلورين أروبي"
+    },
     "AUD": {
         "name": "Australian Dollar",
+        "name_ar": "دولار أسترالي",
         "symbol": "A$"
     },
-    "AZN": "Azerbaijanian Manat",
-    "BSD": "Bahamian Dollar",
+    "AZN": {
+        "name": "Azerbaijanian Manat",
+        "name_ar": "مانات أذربيجاني"
+    },
+    "BSD": {
+        "name": "Bahamian Dollar",
+        "name_ar": "دولار باهاماسي"
+    },
     "BHD": {
         "name": "Bahraini Dinar",
-        "divisibility": 3
+        "name_ar": "دينار بحريني",
+        "divisibility": 3,
+        "symbol": "د.ب"
     },
-    "BDT": "Taka",
-    "BBD": "Barbados Dollar",
-    "BYN": "Belarusian Ruble",
+    "BDT": {
+        "name": "Taka",
+        "name_ar": "تاكا"
+    },
+    "BBD": {
+        "name": "Barbados Dollar",
+        "name_ar": "دولار بربادوسي"
+    },
+    "BYN": {
+        "name": "Belarusian Ruble",
+        "name_ar": "روبل بيلاروسي"
+    },
     "BYR": {
         "name": "Belarusian Ruble",
+        "name_ar": "روبل بيلاروسي",
         "divisibility": 0
     },
-    "BZD": "Belize Dollar",
+    "BZD": {
+        "name": "Belize Dollar",
+        "name_ar": "دولار بليزي"
+    },
     "XOF": {
         "name": "CFA Franc BCEAO",
+        "name_ar": "فرنك سي إف إيه",
         "divisibility": 0
     },
-    "BMD": "Bermudian Dollar",
-    "INR": "Indian Rupee",
-    "BTN": "Ngultrum",
-    "BOB": "Boliviano",
-    "BOV": "Mvdol",
-    "BAM": "Convertible Mark",
-    "BWP": "Pula",
-    "NOK": "Norwegian Krone",
-    "BRL": "Brazilian Real",
-    "BND": "Brunei Dollar",
-    "BGN": "Bulgarian Lev",
+    "BMD": {
+        "name": "Bermudian Dollar",
+        "name_ar": "دولار برمودي"
+    },
+    "INR": {
+        "name": "Indian Rupee",
+        "name_ar": "روبية هندية",
+        "symbol": "₹"
+    },
+    "BTN": {
+        "name": "Ngultrum",
+        "name_ar": "نغولتروم"
+    },
+    "BOB": {
+        "name": "Boliviano",
+        "name_ar": "بوليفيانو"
+    },
+    "BOV": {
+        "name": "Mvdol",
+        "name_ar": "أم في دول"
+    },
+    "BAM": {
+        "name": "Convertible Mark",
+        "name_ar": "مارك قابل للتحويل"
+    },
+    "BWP": {
+        "name": "Pula",
+        "name_ar": "بولا"
+    },
+    "NOK": {
+        "name": "Norwegian Krone",
+        "name_ar": "كرونة نرويجية"
+    },
+    "BRL": {
+        "name": "Brazilian Real",
+        "name_ar": "ريال برازيلي",
+        "symbol": "R$"
+    },
+    "BND": {
+        "name": "Brunei Dollar",
+        "name_ar": "دولار بروني"
+    },
+    "BGN": {
+        "name": "Bulgarian Lev",
+        "name_ar": "ليف بلغاري"
+    },
     "BIF": {
         "name": "Burundi Franc",
+        "name_ar": "فرنك بوروندي",
         "divisibility": 0
     },
-    "CVE": "Cabo Verde Escudo",
-    "KHR": "Riel",
+    "CVE": {
+        "name": "Cabo Verde Escudo",
+        "name_ar": "اسكودو كاب فيردي"
+    },
+    "KHR": {
+        "name": "Riel",
+        "name_ar": "ريال كمبودي"
+    },
     "XAF": {
         "name": "CFA Franc BEAC",
+        "name_ar": "فرنك سي إف إيه",
         "divisibility": 0
     },
     "CAD": {
         "name": "Canadian Dollar",
+        "name_ar": "دولار كندي",
         "symbol": "CA$"
     },
-    "KYD": "Cayman Islands Dollar",
+    "KYD": {
+        "name": "Cayman Islands Dollar",
+        "name_ar": "دولار جزر كايمان"
+    },
     "CLP": {
         "name": "Chilean Peso",
+        "name_ar": "بيزو تشيلي",
         "divisibility": 0
     },
     "CLF": {
         "name": "Unidad de Fomento",
+        "name_ar": "يونيداد دي فومنتو",
         "divisibility": 4
     },
     "CNY": {
         "name": "Yuan Renminbi",
+        "name_ar": "يوان رينمينبي",
         "symbol": "CN¥"
     },
-    "COP": "Colombian Peso",
-    "COU": "Unidad de Valor Real",
+    "COP": {
+        "name": "Colombian Peso",
+        "name_ar": "بيزو كولومبي"
+    },
+    "COU": {
+        "name": "Unidad de Valor Real",
+        "name_ar": "يونيداد دي فالور ريال"
+    },
     "KMF": {
         "name": "Comoro Franc",
+        "name_ar": "فرنك جزر القمر",
         "divisibility": 0
     },
-    "CDF": "Congolese Franc",
+    "CDF": {
+        "name": "Congolese Franc",
+        "name_ar": "فرنك كونغولي"
+    },
     "NZD": {
         "name": "New Zealand Dollar",
+        "name_ar": "دولار نيوزيلندي",
         "symbol": "NZ$"
     },
-    "CRC": "Costa Rican Colon",
-    "HRK": "Kuna",
-    "CUP": "Cuban Peso",
-    "CUC": "Peso Convertible",
-    "ANG": "Netherlands Antillean Guilder",
-    "CZK": "Czech Koruna",
-    "DKK": "Danish Krone",
+    "CRC": {
+        "name": "Costa Rican Colon",
+        "name_ar": "كولون كوستاريكي"
+    },
+    "HRK": {
+        "name": "Kuna",
+        "name_ar": "كونا"
+    },
+    "CUP": {
+        "name": "Cuban Peso",
+        "name_ar": "بيزو كوبي"
+    },
+    "CUC": {
+        "name": "Peso Convertible",
+        "name_ar": "بيزو قابل للتحويل"
+    },
+    "ANG": {
+        "name": "Netherlands Antillean Guilder",
+        "name_ar": "غيلدر أنتيلي هولندي"
+    },
+    "CZK": {
+        "name": "Czech Koruna",
+        "name_ar": "كرونة تشيكية"
+    },
+    "DKK": {
+        "name": "Danish Krone",
+        "name_ar": "كرونة دنماركية"
+    },
     "DJF": {
         "name": "Djibouti Franc",
+        "name_ar": "فرنك جيبوتي",
         "divisibility": 0
     },
-    "DOP": "Dominican Peso",
-    "EGP": "Egyptian Pound",
-    "SVC": "El Salvador Colon",
-    "ERN": "Nakfa",
+    "DOP": {
+        "name": "Dominican Peso",
+        "name_ar": "بيزوドミニカン"
+    },
+    "EGP": {
+        "name": "Egyptian Pound",
+        "name_ar": "جنيه مصري",
+        "symbol": "ج.م"
+    },
+    "SVC": {
+        "name": "El Salvador Colon",
+        "name_ar": "كولون السلفادور"
+    },
+    "ERN": {
+        "name": "Nakfa",
+        "name_ar": "نكافا"
+    },
     "ETB": {
         "name": "Ethiopian Birr",
+        "name_ar": "بر إثيوبي",
         "crypto": true
     },
-    "FKP": "Falkland Islands Pound",
-    "FJD": "Fiji Dollar",
+    "FKP": {
+        "name": "Falkland Islands Pound",
+        "name_ar": "جنيه جزر فوكلاند"
+    },
+    "FJD": {
+        "name": "Fiji Dollar",
+        "name_ar": "دولار فيجي"
+    },
     "XPF": {
         "name": "CFP Franc",
+        "name_ar": "فرنك سي إف بي",
         "divisibility": 0
     },
-    "GMD": "Dalasi",
-    "GEL": "Lari",
-    "GHS": "Ghana Cedi",
-    "GIP": "Gibraltar Pound",
-    "GTQ": "Quetzal",
+    "GMD": {
+        "name": "Dalasi",
+        "name_ar": "دالاسي"
+    },
+    "GEL": {
+        "name": "Lari",
+        "name_ar": "لاري"
+    },
+    "GHS": {
+        "name": "Ghana Cedi",
+        "name_ar": "سيدي غاني"
+    },
+    "GIP": {
+        "name": "Gibraltar Pound",
+        "name_ar": "جنيه جبل طارق"
+    },
+    "GTQ": {
+        "name": "Quetzal",
+        "name_ar": "كيتزال"
+    },
     "GBP": {
         "name": "Pound Sterling",
+        "name_ar": "جنيه إسترليني",
         "symbol": "£"
     },
     "GNF": {
         "name": "Guinea Franc",
+        "name_ar": "فرنك غيني",
         "divisibility": 0
     },
-    "GYD": "Guyana Dollar",
-    "HTG": "Gourde",
-    "HNL": "Lempira",
-    "HKD": "Hong Kong Dollar",
-    "HUF": "Forint",
+    "GYD": {
+        "name": "Guyana Dollar",
+        "name_ar": "دولار غياني"
+    },
+    "HTG": {
+        "name": "Gourde",
+        "name_ar": "غورد"
+    },
+    "HNL": {
+        "name": "Lempira",
+        "name_ar": "ليمبيرا"
+    },
+    "HKD": {
+        "name": "Hong Kong Dollar",
+        "name_ar": "دولار هونغ كونغ",
+        "symbol": "HK$"
+    },
+    "HUF": {
+        "name": "Forint",
+        "name_ar": "فورنت"
+    },
     "ISK": {
         "name": "Iceland Krona",
+        "name_ar": "كرونة آيسلندية",
         "divisibility": 0
     },
-    "IDR": "Rupiah",
-    "IRR": "Iranian Rial",
+    "IDR": {
+        "name": "Rupiah",
+        "name_ar": "روبية إندونيسية"
+    },
+    "IRR": {
+        "name": "Iranian Rial",
+        "name_ar": "ريال إيراني"
+    },
     "IQD": {
         "name": "Iraqi Dinar",
-        "divisibility": 3
+        "name_ar": "دينار عراقي",
+        "divisibility": 3,
+        "symbol": "د.ع"
     },
-    "ILS": "New Israeli Sheqel",
-    "JMD": "Jamaican Dollar",
+    "ILS": {
+        "name": "New Israeli Sheqel",
+        "name_ar": "شيكل إسرائيلي جديد",
+        "symbol": "₪"
+    },
+    "JMD": {
+        "name": "Jamaican Dollar",
+        "name_ar": "دولار جامايكي"
+    },
     "JPY": {
         "name": "Yen",
+        "name_ar": "ين ياباني",
         "divisibility": 0,
         "symbol": "¥"
     },
     "JOD": {
         "name": "Jordanian Dinar",
-        "divisibility": 3
+        "name_ar": "دينار أردني",
+        "divisibility": 3,
+        "symbol": "د.أ"
     },
-    "KZT": "Tenge",
-    "KES": "Kenyan Shilling",
-    "KPW": "North Korean Won",
+    "KZT": {
+        "name": "Tenge",
+        "name_ar": "تينغي"
+    },
+    "KES": {
+        "name": "Kenyan Shilling",
+        "name_ar": "شلن كيني"
+    },
+    "KPW": {
+        "name": "North Korean Won",
+        "name_ar": "وون كوري شمالي"
+    },
     "KRW": {
         "name": "Won",
+        "name_ar": "وون كوري جنوبي",
         "divisibility": 0,
         "symbol": "₩"
     },
     "KWD": {
         "name": "Kuwaiti Dinar",
-        "divisibility": 3
+        "name_ar": "دينار كويتي",
+        "divisibility": 3,
+        "symbol": "د.ك"
     },
-    "KGS": "Som",
-    "LAK": "Kip",
-    "LBP": "Lebanese Pound",
-    "LSL": "Loti",
-    "ZAR": "Rand",
-    "LRD": "Liberian Dollar",
+    "KGS": {
+        "name": "Som",
+        "name_ar": "سوم"
+    },
+    "LAK": {
+        "name": "Kip",
+        "name_ar": "كيب"
+    },
+    "LBP": {
+        "name": "Lebanese Pound",
+        "name_ar": "ليرة لبنانية",
+        "symbol": "ل.ل"
+    },
+    "LSL": {
+        "name": "Loti",
+        "name_ar": "لوتي"
+    },
+    "ZAR": {
+        "name": "Rand",
+        "name_ar": "راند"
+    },
+    "LRD": {
+        "name": "Liberian Dollar",
+        "name_ar": "دولار ليبيري"
+    },
     "LYD": {
         "name": "Libyan Dinar",
-        "divisibility": 3
+        "name_ar": "دينار ليبي",
+        "divisibility": 3,
+        "symbol": "د.ل"
     },
-    "CHF": "Swiss Franc",
-    "MOP": "Pataca",
-    "MKD": "Denar",
-    "MGA": "Malagasy Ariary",
-    "MWK": "Malawi Kwacha",
-    "MYR": "Malaysian Ringgit",
-    "MVR": "Rufiyaa",
-    "MRO": "Ouguiya",
-    "MUR": "Mauritius Rupee",
-    "MXN": "Mexican Peso",
-    "MXV": "Mexican Unidad de Inversion (UDI)",
-    "MDL": "Moldovan Leu",
-    "MNT": "Tugrik",
-    "MAD": "Moroccan Dirham",
-    "MZN": "Mozambique Metical",
-    "MMK": "Kyat",
-    "NAD": "Namibia Dollar",
-    "NPR": "Nepalese Rupee",
-    "NIO": "Cordoba Oro",
-    "NGN": "Naira",
+    "CHF": {
+        "name": "Swiss Franc",
+        "name_ar": "فرنك سويسري"
+    },
+    "MOP": {
+        "name": "Pataca",
+        "name_ar": "باتاكا"
+    },
+    "MKD": {
+        "name": "Denar",
+        "name_ar": "دينار مقدوني"
+    },
+    "MGA": {
+        "name": "Malagasy Ariary",
+        "name_ar": "أرياري مدغشقري"
+    },
+    "MWK": {
+        "name": "Malawi Kwacha",
+        "name_ar": "كواشا مالاوي"
+    },
+    "MYR": {
+        "name": "Malaysian Ringgit",
+        "name_ar": "رينغيت ماليزي"
+    },
+    "MVR": {
+        "name": "Rufiyaa",
+        "name_ar": "روفيا"
+    },
+    "MRO": {
+        "name": "Ouguiya",
+        "name_ar": "أوقية"
+    },
+    "MUR": {
+        "name": "Mauritius Rupee",
+        "name_ar": "روبية موريشيوسية"
+    },
+    "MXN": {
+        "name": "Mexican Peso",
+        "name_ar": "بيزو مكسيكي"
+    },
+    "MXV": {
+        "name": "Mexican Unidad de Inversion (UDI)",
+        "name_ar": "يونيداد دي إنفريسيون مكسيكية"
+    },
+    "MDL": {
+        "name": "Moldovan Leu",
+        "name_ar": "ليو مولدوفي"
+    },
+    "MNT": {
+        "name": "Tugrik",
+        "name_ar": "توغريك"
+    },
+    "MAD": {
+        "name": "Moroccan Dirham",
+        "name_ar": "درهم مغربي",
+        "symbol": "د.م."
+    },
+    "MZN": {
+        "name": "Mozambique Metical",
+        "name_ar": "ميتيكال موزمبيقي"
+    },
+    "MMK": {
+        "name": "Kyat",
+        "name_ar": "كيات"
+    },
+    "NAD": {
+        "name": "Namibia Dollar",
+        "name_ar": "دولار ناميبي"
+    },
+    "NPR": {
+        "name": "Nepalese Rupee",
+        "name_ar": "روبية نيبالية"
+    },
+    "NIO": {
+        "name": "Cordoba Oro",
+        "name_ar": "كوردوبا"
+    },
+    "NGN": {
+        "name": "Naira",
+        "name_ar": "نيرة"
+    },
     "OMR": {
         "name": "Rial Omani",
-        "divisibility": 3
+        "name_ar": "ريال عماني",
+        "divisibility": 3,
+        "symbol": "ر.ع."
     },
-    "PKR": "Pakistan Rupee",
-    "PAB": "Balboa",
-    "PGK": "Kina",
+    "PKR": {
+        "name": "Pakistan Rupee",
+        "name_ar": "روبية باكستانية"
+    },
+    "PAB": {
+        "name": "Balboa",
+        "name_ar": "بالبو"
+    },
+    "PGK": {
+        "name": "Kina",
+        "name_ar": "كينا"
+    },
     "PYG": {
         "name": "Guarani",
+        "name_ar": "غواراني",
         "divisibility": 0
     },
-    "PEN": "Sol",
-    "PHP": "Philippine Peso",
-    "PLN": "Zloty",
-    "QAR": "Qatari Rial",
-    "RON": "Romanian Leu",
-    "RUB": "Russian Ruble",
+    "PEN": {
+        "name": "Sol",
+        "name_ar": "سول"
+    },
+    "PHP": {
+        "name": "Philippine Peso",
+        "name_ar": "بيزو فلبيني"
+    },
+    "PLN": {
+        "name": "Zloty",
+        "name_ar": "زلوتي"
+    },
+    "QAR": {
+        "name": "Qatari Rial",
+        "name_ar": "ريال قطري",
+        "symbol": "ر.ق"
+    },
+    "RON": {
+        "name": "Romanian Leu",
+        "name_ar": "ليو روماني"
+    },
+    "RUB": {
+        "name": "Russian Ruble",
+        "name_ar": "روبل روسي"
+    },
     "RWF": {
         "name": "Rwanda Franc",
+        "name_ar": "فرنك رواندي",
         "divisibility": 0
     },
-    "SHP": "Saint Helena Pound",
-    "WST": "Tala",
-    "STD": "Dobra",
-    "SAR": "Saudi Riyal",
-    "RSD": "Serbian Dinar",
-    "SCR": "Seychelles Rupee",
-    "SLL": "Leone",
-    "SGD": "Singapore Dollar",
-    "SBD": "Solomon Islands Dollar",
-    "SOS": "Somali Shilling",
-    "SSP": "South Sudanese Pound",
-    "LKR": "Sri Lanka Rupee",
-    "SDG": "Sudanese Pound",
-    "SRD": "Surinam Dollar",
-    "SZL": "Lilangeni",
-    "SEK": "Swedish Krona",
-    "CHE": "WIR Euro",
-    "CHW": "WIR Franc",
-    "SYP": "Syrian Pound",
-    "TWD": "New Taiwan Dollar",
-    "TJS": "Somoni",
-    "TZS": "Tanzanian Shilling",
-    "THB": "Baht",
-    "TOP": "Pa’anga",
-    "TTD": "Trinidad and Tobago Dollar",
+    "SHP": {
+        "name": "Saint Helena Pound",
+        "name_ar": "جنيه سان هيلين"
+    },
+    "WST": {
+        "name": "Tala",
+        "name_ar": "تالا"
+    },
+    "STD": {
+        "name": "Dobra",
+        "name_ar": "دوبرا"
+    },
+    "SAR": {
+        "name": "Saudi Riyal",
+        "name_ar": "ريال سعودي",
+        "symbol": "ر.س"
+    },
+    "RSD": {
+        "name": "Serbian Dinar",
+        "name_ar": "دينار صربي"
+    },
+    "SCR": {
+        "name": "Seychelles Rupee",
+        "name_ar": "روبية سيشلية"
+    },
+    "SLL": {
+        "name": "Leone",
+        "name_ar": "ليون"
+    },
+    "SGD": {
+        "name": "Singapore Dollar",
+        "name_ar": "دولار سنغافوري"
+    },
+    "SBD": {
+        "name": "Solomon Islands Dollar",
+        "name_ar": "دولار جزر سولومون"
+    },
+    "SOS": {
+        "name": "Somali Shilling",
+        "name_ar": "شلن صومالي"
+    },
+    "SSP": {
+        "name": "South Sudanese Pound",
+        "name_ar": "جنيه جنوب السودان"
+    },
+    "LKR": {
+        "name": "Sri Lanka Rupee",
+        "name_ar": "روبية سريلانكية"
+    },
+    "SDG": {
+        "name": "Sudanese Pound",
+        "name_ar": "جنيه سوداني",
+        "symbol": "ج.س."
+    },
+    "SRD": {
+        "name": "Surinam Dollar",
+        "name_ar": "دولار سورينامي"
+    },
+    "SZL": {
+        "name": "Lilangeni",
+        "name_ar": "ليلانغيني"
+    },
+    "SEK": {
+        "name": "Swedish Krona",
+        "name_ar": "كرونة سويدية"
+    },
+    "CHE": {
+        "name": "WIR Euro",
+        "name_ar": "يورو وير"
+    },
+    "CHW": {
+        "name": "WIR Franc",
+        "name_ar": "فرنك وير"
+    },
+    "SYP": {
+        "name": "Syrian Pound",
+        "name_ar": "ليرة سورية",
+        "symbol": "ل.س"
+    },
+    "TWD": {
+        "name": "New Taiwan Dollar",
+        "name_ar": "دولار تايواني جديد"
+    },
+    "TJS": {
+        "name": "Somoni",
+        "name_ar": "ساماني"
+    },
+    "TZS": {
+        "name": "Tanzanian Shilling",
+        "name_ar": "شلن تنزاني"
+    },
+    "THB": {
+        "name": "Baht",
+        "name_ar": "باهت"
+    },
+    "TOP": {
+        "name": "Pa'anga",
+        "name_ar": "بانغا"
+    },
+    "TTD": {
+        "name": "Trinidad and Tobago Dollar",
+        "name_ar": "دولار ترينيداد وتوباغو"
+    },
     "TND": {
         "name": "Tunisian Dinar",
-        "divisibility": 3
+        "name_ar": "دينار تونسي",
+        "divisibility": 3,
+        "symbol": "د.ت"
     },
-    "TRY": "Turkish Lira",
-    "TMT": "Turkmenistan New Manat",
+    "TRY": {
+        "name": "Turkish Lira",
+        "name_ar": "ليرة تركية"
+    },
+    "TMT": {
+        "name": "Turkmenistan New Manat",
+        "name_ar": "مانات تركماني جديد"
+    },
     "UGX": {
         "name": "Uganda Shilling",
+        "name_ar": "شلن أوغندي",
         "divisibility": 0
     },
-    "UAH": "Hryvnia",
-    "AED": "UAE Dirham",
-    "USN": "US Dollar (Next day)",
-    "UYU": "Peso Uruguayo",
+    "UAH": {
+        "name": "Hryvnia",
+        "name_ar": "هريفنيا"
+    },
+    "AED": {
+        "name": "UAE Dirham",
+        "name_ar": "درهم إماراتي",
+        "symbol": "د.إ"
+    },
+    "USN": {
+        "name": "US Dollar (Next day)",
+        "name_ar": "دولار أمريكي (اليوم التالي)"
+    },
+    "UYU": {
+        "name": "Peso Uruguayo",
+        "name_ar": "بيزو أوروغواي"
+    },
     "UYI": {
         "name": "Uruguay Peso en Unidades Indexadas (URUIURUI)",
+        "name_ar": "بيزو أوروغواي في وحدات مفهرسة",
         "divisibility": 0
     },
-    "UZS": "Uzbekistan Sum",
+    "UZS": {
+        "name": "Uzbekistan Sum",
+        "name_ar": "سوم أوزبكي"
+    },
     "VUV": {
         "name": "Vatu",
+        "name_ar": "فاتو",
         "divisibility": 0
     },
-    "VEF": "Bolívar",
+    "VEF": {
+        "name": "Bolívar",
+        "name_ar": "بوليفار"
+    },
     "VND": {
         "name": "Dong",
+        "name_ar": "دونغ",
         "divisibility": 0
     },
-    "YER": "Yemeni Rial",
-    "ZMW": "Zambian Kwacha",
-    "ZWL": "Zimbabwe Dollar",
+    "YER": {
+        "name": "Yemeni Rial",
+        "name_ar": "ريال يمني",
+        "symbol": "ر.ي"
+    },
+    "ZMW": {
+        "name": "Zambian Kwacha",
+        "name_ar": "كواشا زامبي"
+    },
+    "ZWL": {
+        "name": "Zimbabwe Dollar",
+        "name_ar": "دولار زيمبابوي"
+    },
     "BTC": {
         "name": "Bitcoin",
+        "name_ar": "بيتكوين",
         "divisibility": 8,
-        "crypto": true
+        "crypto": true,
+        "symbol": "₿"
     },
     "SATS": {
         "name": "Satoshis",
+        "name_ar": "ساتوشي",
         "divisibility": 0,
         "crypto": true
     },
     "LTC": {
-        "name": "LTC",
+        "name": "Litecoin",
+        "name_ar": "لايتكوين",
         "divisibility": 8,
-        "crypto": true
+        "crypto": true,
+        "symbol": " LTC"
     },
     "BCH": {
-        "name": "BCH",
+        "name": "Bitcoin Cash",
+        "name_ar": "بيتكوين كاش",
         "divisibility": 8,
-        "crypto": true
+        "crypto": true,
+        "symbol": " BCH"
     },
     "XRG": {
         "name": "Ergon",
+        "name_ar": "إرجون",
         "divisibility": 8,
         "crypto": true
     },
     "ETH": {
         "name": "Ethereum",
+        "name_ar": "إيثيريوم",
         "divisibility": 8,
-        "crypto": true
+        "crypto": true,
+        "symbol": "Ξ"
     },
     "BNB": {
         "name": "Binance Coin",
+        "name_ar": "بينانس كوين",
         "divisibility": 8,
         "crypto": true
     },
     "MATIC": {
         "name": "Polygon",
+        "name_ar": "بوليجون",
         "divisibility": 8,
         "crypto": true
     },
     "TRX": {
         "name": "Tron",
+        "name_ar": "ترون",
         "divisibility": 6,
         "crypto": true
     },
     "GRS": {
         "name": "Groestlcoin",
+        "name_ar": "غروستلكوين",
         "divisibility": 8,
         "crypto": true
     },
     "XMR": {
         "name": "Monero",
+        "name_ar": "مونيرو",
         "divisibility": 8,
         "crypto": true
     }

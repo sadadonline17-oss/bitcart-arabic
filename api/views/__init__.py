@@ -20,6 +20,7 @@ from api.views.update import router as update_router
 from api.views.users import router as users_router
 from api.views.wallets import router as wallets_router
 from api.views.websocket import router as websocket_router
+from api.views.locales import router as locales_router
 
 router = APIRouter(route_class=DishkaRoute)
 
@@ -44,3 +45,4 @@ router.include_router(plugins_router, prefix="/plugins", tags=["plugins"])
 
 router.include_router(token_router, prefix="/token", tags=["token"])
 router.include_router(websocket_router, prefix="/ws", tags=["websocket"])
+router.include_router(locales_router, prefix="/locales", tags=["locales"])
