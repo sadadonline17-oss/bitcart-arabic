@@ -35,3 +35,20 @@ services:
     plan: free
     region: frankfurt
     ipAllowList: []
+
+  # Frontend (Static)
+  - type: web
+    name: bitcart-frontend
+    env: static
+    region: frankfurt
+    plan: free
+    staticPublishPath: ./api-docker
+    buildCommand: ""
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=0, must-revalidate
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /payment.html
