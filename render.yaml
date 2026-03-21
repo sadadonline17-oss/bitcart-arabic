@@ -2,7 +2,6 @@
 # https://render.com/docs/blueprint-spec
 
 databases:
-  # PostgreSQL Database
   - name: bitcart-postgres
     plan: free
     region: frankfurt
@@ -28,25 +27,11 @@ services:
           name: bitcart-postgres
           property: connectionString
       - key: REDIS_URL
-        fromService:
-          type: redis
-          name: bitcart-redis
-          envVarKey: REDIS_URL
-
-  # Frontend (Static)
-  - type: web
-    name: bitcart-frontend
-    region: frankfurt
-    plan: free
-    buildCommand: ""
-    staticPublishPath: .
-    headers:
-      - path: /*
-        name: Cache-Control
-        value: public, max-age=0, must-revalidate
+        value: redis://bitcart-redis:6379
 
   # Redis
   - type: redis
     name: bitcart-redis
     plan: free
     region: frankfurt
+    ipAllowList: []
