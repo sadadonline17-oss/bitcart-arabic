@@ -1,4 +1,4 @@
-# renders.yaml - Render Blueprint
+# render.yaml - Render Blueprint
 # https://render.com/docs/blueprint-spec
 
 services:
@@ -38,10 +38,19 @@ services:
         value: public, max-age=0, must-revalidate
 
   # PostgreSQL Database
-  - type: psql
+  - type: pserv
     name: bitcart-postgres
+    env: docker
+    dockerImage: postgres:15-alpine
     plan: free
     region: frankfurt
+    envVars:
+      - key: POSTGRES_DB
+        value: bitcart
+      - key: POSTGRES_USER
+        value: bitcart
+      - key: POSTGRES_PASSWORD
+        generateValue: true
 
   # Redis
   - type: redis
